@@ -19,6 +19,12 @@ Collegate la valvola di controllo dell'acqua al pin 6 tramite un relè.
 Collegate i sensori di temperatura, luce e umidità ai piedini analogici
 0, 1 e 2.
 
+(seguite lo schema elettrico che trovate qui : https://github.com/mbanzi/Wired.it-Tutorials/raw/master/201104_giarduino/hw/giarduino-sch.png )
+
+Il sensore di umidità è composto da due pezzi di metallo infilati nella terra
+a mezzo centimetro di distanza. si possono utilizzare anche due mine
+di grafite un po spesse perchè sono meno sensibili alla corrosione
+
 A questo punto vi serve un codice identificativo univoco per il vostro 
 giarduino in modo che l'interfaccia su internet sia in grado di comandarlo
 (e non quello del vicino!)
