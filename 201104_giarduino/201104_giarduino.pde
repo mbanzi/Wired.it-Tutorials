@@ -27,6 +27,12 @@ int bufferPointer = 0;
 const int processDelay = 100;
 
 const int pumpPin = 6;
+const int humiditySwitchPin = 2;
+const int humidityPin = A0;
+const int temperaturePin = A1;
+const int lightPin = A2;
+
+
 
 Client client(server, 61613);
 
@@ -34,6 +40,7 @@ void setup()
 {
 
   pinMode(pumpPin,OUTPUT);
+  pinMode(humiditySwitchPin,OUTPUT);
 
   Ethernet.begin(mac, ip);
   Serial.begin(9600);
@@ -127,9 +134,11 @@ void processData() {
 }
 
 void acquireData() {
-  temperature = analogRead(0);
-  humidity    = analogRead(1);
-  light       = analogRead(2);
+  temperature = analogRead(temperaturePin);
+  digitalWrite(humiditySwitchPin,HIGH); // turn on the sensor
+  humidity    = analogRead(humidityPin);
+  digitalWrite(humiditySwitchPin,LOW);  // turn off the sensor
+  light       = analogRead(lightPin);
 }
 
 
